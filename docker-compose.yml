@@ -1,0 +1,21 @@
+version: "3.9"
+services:
+  # db:
+  #   image: postgres
+  #   environment:
+  #     POSTGRES_DB: dbname
+  #     POSTGRES_USER: username
+  #     POSTGRES_PASSWORD: password
+  web:
+    restart: always
+    build: .
+    container_name: 'web'
+    working_dir: '/root/'
+    # command: python manage.py runserver 0.0.0.0:8000
+    volumes:
+      - ./opt:/root/opt
+    ports:
+      - "8000:8000"
+    tty: true
+    # depends_on:
+    #   - db
